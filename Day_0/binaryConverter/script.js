@@ -1,5 +1,7 @@
 $("document").ready(function () {
-    console.log("Ready to go.");
+    console.log('1001110_');
+    console.log('\n\n');
+    console.log('Ready to go.\n\n');
 
     var inpUserInput = $('#inpUserInput');
     inpUserInput.click(function () {
@@ -15,6 +17,7 @@ $("document").ready(function () {
     var choiceToText = $('#choiceToText');
 
     choiceToBinary.click(function () {
+        console.log('%cText to binary option selected.\n\n', 'color: orange');
         inpUserInput.attr('placeholder', 'Enter your text here..')
         inpUserResult.attr('placeholder', 'Result..');
         inpUserInput.val('');
@@ -22,6 +25,7 @@ $("document").ready(function () {
     });
 
     choiceToText.click(function () {
+        console.log('%cBinary to text option selected.\n\n', 'color: orange');
         inpUserInput.attr('placeholder', 'Enter your binary here..')
         inpUserResult.attr('placeholder', 'Result..');
         inpUserInput.val('');
@@ -39,12 +43,12 @@ $("document").ready(function () {
         var result = "";
 
         if (choice == 'textToBinary') {
-            console.log("opt 1");
+            console.log('%cText to binary option worked..', 'color: #00FF41');
             for (var f = 0; f < getUserInput.length; f++) {
                 result += getUserInput[f].charCodeAt(0).toString(2) + " ";
             }
         } else {
-            console.log("opt 2");
+            console.log('%cBinary to text option worked.', 'color: #00FF41');
 
             result = getUserInput
                 .split(' ')
@@ -53,18 +57,14 @@ $("document").ready(function () {
         }
 
 
-        console.log(result);
+        console.log('%cResult is:', 'color: #0437F2', result, '\n\n');
         inpUserResult.val(result);
-    }
-
-    $('#element').click(function () {
-        if ($('#radio_button').is(':checked')) { alert("it's checked"); }
-    });
+    };
 
 
     btnConvert.click(function () {
 
-        console.log("asda");
+        console.log('User pressed the convert button.');
 
         if ($('#choiceToBinary').is(':checked')) {
             convertEm("textToBinary");
