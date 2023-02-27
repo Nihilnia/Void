@@ -1,0 +1,52 @@
+body {
+    background-color: #0c0c0d;
+    color: aliceblue;
+    height: 2400px;
+}
+
+@font-face {
+    font-family: ITC_Benguiat_Book;
+    src: url(Compontentz/ITC_Benguiat_Book.ttf);
+}
+
+
+
+
+.sectionz {
+    margin-top: 35px;
+    margin-bottom: 35px;
+}
+
+
+html,
+body {
+    width: 100%;
+    height: 100%;
+    padding: 0;
+    margin: 0;
+    font-family: ITC_Benguiat_Book;
+
+}
+
+a:link {
+    text-decoration: none;
+}
+
+
+a:visited {
+    text-decoration: none;
+}
+
+
+a:hover {
+    text-decoration: none;
+}
+
+
+a:active {
+    text-decoration: none;
+}
+
+a {
+    color: aliceblue;
+}
