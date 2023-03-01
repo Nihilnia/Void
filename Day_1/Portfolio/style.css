@@ -5,10 +5,9 @@ body {
 }
 
 @font-face {
-    font-family: ITC_Benguiat_Book;
-    src: url(Compontentz/ITC_Benguiat_Book.ttf);
+    font-family: Quicksand-Regular;
+    src: url(Compontentz/fontZ/Quicksand-Regular.ttf);
 }
-
 
 
 
@@ -24,7 +23,7 @@ body {
     height: 100%;
     padding: 0;
     margin: 0;
-    font-family: ITC_Benguiat_Book;
+    font-family: Quicksand-Regular;
 
 }
 
@@ -49,4 +48,10 @@ a:active {
 
 a {
     color: aliceblue;
+}
+
+
+.projectThumb {
+    width: 416px;
+    height: 272px;
 }

@@ -1,7 +1,6 @@
 $('document').ready(() => {
     console.log("Ready to go.");
 
-
     // ?Password length
     // ?Include uppercase
     // ?Include lowercase
@@ -17,12 +16,6 @@ $('document').ready(() => {
     var btnGenerate = $('#btnGenerate');
     var inpResult = $('#inpResult');
 
-    inpResult.val("Result..");
-    inpResult.click(() => {
-        inpResult.val("");
-    })
-
-
     // console.log(pwLowercase);
 
     //Funtions
@@ -33,20 +26,12 @@ $('document').ready(() => {
 
     // console.log(randomNumb(100));
 
-
-
-
-
-
     //-String
     function randomStr() {
         return Math.random().toString(36).substr(2, 8);
     };
 
     // console.log(randomStr());
-
-
-
 
     function generatePass(pLenght, low3, upp3, numb3, symb0) {
 
@@ -59,18 +44,23 @@ $('document').ready(() => {
         // console.log(numb3);
         // console.log(symb0);
 
+        //array here, selected ones to put in
 
 
         var upperCasez = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
         var lowerCasez = "abcdefghijklmnopqrstuvwxyz";
         var numberz = "0123456789";
         var symbolz = "!-_?,./\"'*}{[]£#$½";
+
         for (var f = 0; f < pLenght; f++) {
 
 
-            var xChance = randomNumb(4);
-            // console.log("Lottery:", xChance);
+            //It works (finally) but not good. could be shorter.
+            //When the contions not okay it starts over.
 
+
+            var xChance = randomNumb(4);
+            console.log("Lottery:", xChance);
 
             if (low3 && xChance == 0) {
                 console.log("Lower picked:", lowerCasez[randomNumb(lowerCasez.length)]);
@@ -84,6 +74,11 @@ $('document').ready(() => {
             } if (symb0 && xChance == 3) {
                 console.log("Symbol picked:", symbolz[randomNumb(symbolz.length)]);
                 generatedPass += symbolz[randomNumb(symbolz.length)];
+            }
+
+            if (generatedPass.length <= f) {
+                f--;
+                console.log("Condition failed so", xChance);
             }
         }
         return generatedPass;
@@ -109,7 +104,6 @@ $('document').ready(() => {
         symbolz = pwSymbols.prop('checked');
         console.log("%cIs symbolz selected?:", "color: #F28C28", symbolz);
 
-
         // console.log("Given length", inpLength.val());
         // console.log("lowerCase", lowerCase);
         // console.log("lowerCase", upperCase);
@@ -119,7 +113,17 @@ $('document').ready(() => {
         var daResult = generatePass(l3ngth, lowerCase, upperCase, numberz, symbolz);
 
         console.log("%cGenerated pass", "background-color: Green", daResult);
-        inpResult.val(daResult);
+
+        //If there is a result click event shouldn' t delete the output.
+        inpResult.val("Result..");
+        if (inpResult.val().length == daResult.length || inpResult.val().length > 0) {
+            inpResult.val(daResult);
+        } else {
+            inpResult.click(() => {
+                inpResult.val("");
+            })
+        };
+
 
     });
 
